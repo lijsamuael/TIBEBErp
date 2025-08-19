@@ -1,0 +1,9 @@
+{
+  "registry": "https://github.com/Dagi1995/Design-system-tibeb",
+  "components": {
+    "atoms": "design-system/src/components/atoms",
+    "molecules": "design-system/src/components/molecules",
+    "organisms": "design-system/src/components/organisms"
+  },
+  "path": "./components"
+}

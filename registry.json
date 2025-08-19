@@ -1,0 +1,225 @@
+{
+    "atoms": {
+      "Avatar": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-avatar"]
+      },
+      "Badge": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-badge"]
+      },
+      "Button": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-slot", "class-variance-authority"]
+      },
+      "Checkbox": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-checkbox"]
+      },
+      "Collapsible": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-collapsible"]
+      },
+      "ErrorMessage": {
+        "dependencies": [],
+        "npmDependencies": ["react","lucide-react"]
+      },
+      "FilterTag": {
+        "dependencies": ["Button"],
+        "npmDependencies": ["react","lucide-react"]
+      },
+      "Input": {
+        "dependencies": [],
+        "npmDependencies": ["react"]
+      },
+      "InputOTP": {
+        "dependencies": [],
+        "npmDependencies": ["react","input-otp","lucide-react"]
+      },
+      "Label": {
+        "dependencies": [],
+        "npmDependencies": []
+      },
+      "Popover": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-popover"]
+      },
+      "Progress": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-progress"]
+      },
+      "RadioGroup": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-radio-group","lucide-react"]
+      },
+      "ScrollArea": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-scroll-area"]
+      },
+      "Select": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-select"]
+      },
+      "Separator": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-separator"]
+      },
+      "Skeleton": {
+        "dependencies": [],
+        "npmDependencies": ["react"]
+      },
+      "Sonner": {
+        "dependencies": [],
+        "npmDependencies": ["react","next-themes","sonner"]
+      },
+      "Spinner": {
+        "dependencies": [],
+        "npmDependencies": ["react"]
+      },
+      "Switch": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-switch"]
+      },
+      
+      "Tabs": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-dialog"]
+      },
+      "TextArea": {
+        "dependencies": [],
+        "npmDependencies": ["react"]
+      },
+      "Toggle": {
+        "dependencies": [],
+        "npmDependencies": ["react","radix-ui/react-taggle"]
+      },
+      "Tooltip": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-tooltip"]
+      }, 
+      "Typography": {
+        "dependencies": [],
+        "npmDependencies": ["react"]
+      }
+    },
+    "molecules": {
+      "Alert": {
+        "dependencies": [],
+        "npmDependencies": ["react","class-variance-authority"]
+      },
+      "BirthdateInput": {
+        "dependencies": ["Button", "Popover","Calendar"],
+        "npmDependencies": ["react","date-fns","lucide-react"]
+      },
+      "Breadcrump": {
+        "dependencies": [],
+        "npmDependencies": ["react","lucide-react","@radix-ui/react-slot"]
+      },
+      "Calendar": {
+        "dependencies": ["Button"],
+        "npmDependencies": ["react","class-variance-authority","react-day-picker","lucide-react"]
+      },
+      "Chart": {
+        "dependencies": [],
+        "npmDependencies": ["react","recharts"]
+      },
+      "Card": {
+        "dependencies": [],
+        "npmDependencies": []
+      },
+      "ColorPicker": {
+        "dependencies": ["Button","Popover","Input"],
+        "npmDependencies": ["react","react-colorful","lucide-react","sonner"]
+      },
+      "DropdownMenu": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-dropdown-menu","lucide-react"]
+      },
+      "FilterItem": {
+        "dependencies": [],
+        "npmDependencies": ["react","class-variance-authority"]
+      },
+      "FileUpload": {
+        "dependencies": ["Input","Button"],
+        "npmDependencies": ["react","@radix-ui/react-dropdown-menu","lucide-react","react-dropzone","sonner"]
+      },
+      "NavigationMenu": {
+        "dependencies": [],
+        "npmDependencies": ["react", "class-variance-authority","lucide-react","@radix-ui/react-navigation-menu"]
+      },
+      "NotificationItem": {
+        "dependencies": ["Avatar"],
+        "npmDependencies": ["react"]
+      },
+      "SearchInput": {
+        "dependencies": ["Input","Button"],
+        "npmDependencies": ["react","lucide-react"]
+      },
+      "Sheet": {
+        "dependencies": [],
+        "npmDependencies": ["react","@radix-ui/react-dialog"]
+      },
+      "Table": {
+        "dependencies": [],
+        "npmDependencies": ["react"]
+      }
+    },
+    "organisms": {
+      "AdvancedTable": {
+        "dependencies": ["Table", "Input", "Checkbox", "Button"],
+        "npmDependencies": ["react","@tanstack/react-table","lucide-react"]
+      },
+      "AlertDialog": {
+        "dependencies": ["Button"],
+        "npmDependencies": ["react", "@radix-ui/react-alert-dialog"]
+      },
+      "Calander": {
+        "dependencies": ["Button","Popover","Tabs"],
+        "npmDependencies": ["react","date-fns", "lucide-react"]
+      },
+      "DynamicFilterRow": {
+        "dependencies": ["Button","Input","Calendar","Popover","Select","FilterItems"],
+        "npmDependencies": ["react", "date-fns","lucide-react"]
+      },
+      "SideBar": {
+        "dependencies": ["Button","Input","Separator","Sheet","Skeleton","Tooltip"],
+        "npmDependencies": ["react", "@radix-ui/react-slot","class-variance-authority","lucide-react","@/hooks/use-mobile"]
+      },
+      "RegisterForm": {
+        "dependencies": ["Card", "Label", "Input", "Checkbox", "Button", "ErrorMessage", "BirthdateInput" , "Select" ,"FileUpload"],
+        "npmDependencies": ["react","react-hook-form", "zod", "@hookform/resolvers", "sonner" , "next/navigation" ]
+      },
+      "LoginForm": {
+        "dependencies": ["Card", "Label", "Input", "Checkbox", "Button", "ErrorMessage"],
+        "npmDependencies": ["react","react-hook-form", "zod", "@hookform/resolvers", "sonner" , "next/navigation" ]
+      },
+      "ForgotPasswordForm": {
+        "dependencies": ["Card", "Label", "Input", "Button", "ErrorMessage"],
+        "npmDependencies": ["react","react-hook-form", "zod", "@hookform/resolvers", "sonner" , "next/navigation" ]
+      },
+      "ResetPasswordForm": {
+        "dependencies": ["Card", "Label", "Input", "Button", "ErrorMessage"],
+        "npmDependencies": ["react","react-hook-form", "zod", "@hookform/resolvers", "sonner" , "next/navigation" ]
+      },
+      "OtpVerificationForm": {
+        "dependencies": ["Card", "Label", "Input", "Button", "ErrorMessage"],
+        "npmDependencies": ["react","react-hook-form", "zod", "@hookform/resolvers", "sonner" , "next/navigation" ]
+      },
+      "TextEditor": {
+       "dependencies": [ "Button","DropdownMenu","DropdownMenuContent","DropdownMenuItem","DropdownMenuTrigger","Tooltip","TooltipTrigger","TooltipContent" ],
+       "npmDependencies": ["react","@tiptap/react","@tiptap/starter-kit","@tiptap/extension-text-align","@tiptap/extension-highlight","@tiptap/extension-blockquote",
+         "@tiptap/extension-text-style","@tiptap/extension-color","@tiptap/extension-code-block-lowlight","@tiptap/extension-table","@tiptap/extension-table-row","@tiptap/extension-table-cell","@tiptap/extension-table-header","lowlight","highlight.js","lucide-react" ]
+      },
+        "Table": {
+        "dependencies": ["Button","DropdownMenu"],
+        "npmDependencies": ["react","lucide-react", "framer-motion"]
+      } ,
+       "TopNavbar": {
+        "dependencies": ["Button","Input","Avatar","Sheet","DropdownMenu"],
+        "npmDependencies": ["react","next/link", "lucide-react"]
+      }    
+
+    }
+    
+  }
+  

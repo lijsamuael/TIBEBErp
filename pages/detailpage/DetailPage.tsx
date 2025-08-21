@@ -45,7 +45,7 @@ interface ItemDetailsFormProps {
   item: ItemData;
 }
 
-// Sample data for dropdown options
+// Sample data
 const initialItemGroups = [
   "Raw Material",
   "Finished Goods",
@@ -64,7 +64,6 @@ const initialUOMOptions = [
 ];
 
 export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
-  // Form state from props
   const [formState, setFormState] = React.useState<ItemData>({
     name: item.name ?? "",
     group: item.group ?? "",
@@ -79,19 +78,15 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
     description: item.description ?? "",
   });
 
-  // State for dropdown options
   const [itemGroups, setItemGroups] = React.useState(initialItemGroups);
   const [uomOptions, setUomOptions] = React.useState(initialUOMOptions);
 
-  // State for dropdown visibility
   const [showGroupDropdown, setShowGroupDropdown] = React.useState(false);
   const [showUomDropdown, setShowUomDropdown] = React.useState(false);
 
-  // State for dialogs
   const [isNewGroupDialogOpen, setIsNewGroupDialogOpen] = React.useState(false);
   const [isNewUomDialogOpen, setIsNewUomDialogOpen] = React.useState(false);
 
-  // State for new values
   const [newGroupValue, setNewGroupValue] = React.useState("");
   const [newUomValue, setNewUomValue] = React.useState("");
   const [newUomFullForm, setNewUomFullForm] = React.useState("");
@@ -144,64 +139,48 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
 
   return (
     <>
-      <Card className="w-full shadow-lg rounded-2xl border">
+      <Card className="w-full shadow-lg rounded-2xl border font-sans">
         <CardContent className="p-4 sm:pl-4 sm:pr-4 sm:pt-0">
           <Tabs defaultValue="details" className="w-full p-2">
-            <TabsList className="flex flex-wrap gap-2 mb-4 w-full overflow-y-auto text-base">
-              <TabsTrigger value="details" className="text-base">
-                Details
-              </TabsTrigger>
-              <TabsTrigger value="dashboard"  className="text-base">
-                Dashboard
-              </TabsTrigger>
-              <TabsTrigger value="inventory" className="text-base">
-                Inventory
-              </TabsTrigger>
-              <TabsTrigger value="variants" className="text-base">
-                Variants
-              </TabsTrigger>
-              <TabsTrigger value="accounting" className="text-base">
-                Accounting
-              </TabsTrigger>
-              <TabsTrigger value="purchasing" className="text-base">
-                Purchasing
-              </TabsTrigger>
-              <TabsTrigger value="sales" className="text-base">
-                Sales
-              </TabsTrigger>
-              <TabsTrigger value="tax" className="text-base">
-                Tax
-              </TabsTrigger>
-              <TabsTrigger value="quality" className="text-base">
-                Quality
-              </TabsTrigger>
-              <TabsTrigger value="manufacturing" className="text-base">
-                Manufacturing
-              </TabsTrigger>
+            <TabsList className="flex flex-wrap gap-2 mb-4 w-full overflow-y-auto text-sm md:text-base">
+              {[
+                "details",
+                "dashboard",
+                "inventory",
+                "variants",
+                "accounting",
+                "purchasing",
+                "sales",
+                "tax",
+                "quality",
+                "manufacturing",
+              ].map((tab) => (
+                <TabsTrigger key={tab} value={tab} className="font-medium">
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </TabsTrigger>
+              ))}
             </TabsList>
 
             {/* Details Tab */}
             <TabsContent
               value="details"
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-base"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
             >
               {/* Left side */}
-              <div className="space-y-5 text-base">
-                <div className="text-base">
-                  <Label className="text-base font-medium text-gray-800">
-                    Item Name
-                  </Label>
+              <div className="space-y-5">
+                <div>
+                  <Label className="font-medium text-gray-800">Item Name</Label>
                   <Input
                     value={formState.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     placeholder="Enter item name"
-                    className="mt-1 text-base font-bold"
+                    className="mt-1 font-semibold"
                   />
                 </div>
 
                 {/* Item Group Select */}
                 <div className="relative">
-                  <Label className="text-base font-medium text-gray-800">
+                  <Label className="font-medium text-gray-800">
                     Item Group *
                   </Label>
                   <div
@@ -210,7 +189,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                   >
                     <span
                       className={
-                        formState.group ? "font-bold" : "text-gray-400"
+                        formState.group ? "font-semibold" : "text-gray-400"
                       }
                     >
                       {formState.group || "Select Item Group"}
@@ -245,7 +224,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
 
                 {/* Unit of Measure Select */}
                 <div className="relative">
-                  <Label className="text-base font-medium text-gray-800">
+                  <Label className="font-medium text-gray-800">
                     Default Unit of Measure *
                   </Label>
                   <div
@@ -255,7 +234,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                     <span
                       className={
                         formState.Unit_of_Measure
-                          ? "font-bold"
+                          ? "font-semibold"
                           : "text-gray-400"
                       }
                     >
@@ -300,7 +279,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                       handleChange("disabled", checked === true)
                     }
                   />
-                  <Label htmlFor="disabled" className="text-base text-gray-600">
+                  <Label htmlFor="disabled" className="text-gray-600">
                     Disabled
                   </Label>
                 </div>
@@ -312,7 +291,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                       handleChange("allowAlt", checked === true)
                     }
                   />
-                  <Label htmlFor="allowAlt" className="text-base text-gray-600">
+                  <Label htmlFor="allowAlt" className="text-gray-600">
                     Allow Alternative Item
                   </Label>
                 </div>
@@ -324,15 +303,12 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                       handleChange("maintainStock", checked === true)
                     }
                   />
-                  <Label
-                    htmlFor="maintainStock"
-                    className="text-base text-gray-600"
-                  >
+                  <Label htmlFor="maintainStock" className="text-gray-600">
                     Maintain Stock
                   </Label>
                 </div>
                 <div>
-                  <Label className="text-base font-medium text-gray-800">
+                  <Label className="font-medium text-gray-800">
                     Valuation Rate
                   </Label>
                   <Input
@@ -341,7 +317,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                       handleChange("valuationRate", e.target.value)
                     }
                     placeholder="Enter valuation rate"
-                    className="mt-1 text-base font-bold"
+                    className="mt-1 font-semibold"
                   />
                 </div>
                 <div className="flex items-center space-x-2">
@@ -352,15 +328,12 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                       handleChange("isFixedAsset", checked === true)
                     }
                   />
-                  <Label
-                    htmlFor="isFixedAsset"
-                    className="text-base text-gray-600"
-                  >
+                  <Label htmlFor="isFixedAsset" className="text-gray-600">
                     Is Fixed Asset
                   </Label>
                 </div>
                 <div>
-                  <Label className="text-base font-medium text-gray-800">
+                  <Label className="font-medium text-gray-800">
                     Over Delivery/Receipt Allowance (%)
                   </Label>
                   <Input
@@ -369,11 +342,11 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                       handleChange("overDelivery", e.target.value)
                     }
                     placeholder="e.g. 5"
-                    className="mt-1 text-base font-bold"
+                    className="mt-1 font-semibold"
                   />
                 </div>
                 <div>
-                  <Label className="text-base font-medium text-gray-800">
+                  <Label className="font-medium text-gray-800">
                     Over Billing Allowance (%)
                   </Label>
                   <Input
@@ -382,7 +355,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                       handleChange("overBilling", e.target.value)
                     }
                     placeholder="e.g. 10"
-                    className="mt-1 text-base font-bold"
+                    className="mt-1 font-semibold"
                   />
                 </div>
               </div>
@@ -390,7 +363,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
               {/* Collapsibles */}
               <div className="md:col-span-2 mt-6 md:mt-8 space-y-4">
                 <Collapsible open={descOpen} onOpenChange={setDescOpen}>
-                  <CollapsibleTrigger className="text-base flex items-center justify-between w-full font-semibold py-2 border-b text-gray-900">
+                  <CollapsibleTrigger className="flex items-center justify-between w-full font-semibold py-2 border-b text-gray-900">
                     <span>Description</span>
                     <ChevronDown
                       className={`h-5 w-5 transition-transform ${
@@ -400,7 +373,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <textarea
-                      className="w-full border rounded-lg p-3 mt-2 text-base text-gray-900"
+                      className="w-full border rounded-lg p-3 mt-2 text-gray-900 font-sans"
                       placeholder="Write description here..."
                       value={formState.description}
                       onChange={(e) =>
@@ -411,7 +384,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                 </Collapsible>
 
                 <Collapsible open={uomOpen} onOpenChange={setUomOpen}>
-                  <CollapsibleTrigger className="text-base flex items-center justify-between w-full font-semibold py-2 border-b text-gray-900">
+                  <CollapsibleTrigger className="flex items-center justify-between w-full font-semibold py-2 border-b text-gray-900">
                     <span>Units of Measure</span>
                     <ChevronDown
                       className={`h-5 w-5 transition-transform ${
@@ -420,7 +393,7 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
                     />
                   </CollapsibleTrigger>
                   <CollapsibleContent>
-                    <p className="text-base text-gray-700 mt-2">
+                    <p className="text-gray-700 mt-2 font-sans">
                       Add alternative Unit of Measures ...
                     </p>
                   </CollapsibleContent>
@@ -431,12 +404,12 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
         </CardContent>
       </Card>
 
-      {/* Dialog for adding new Item Group */}
+      {/* Dialog for new Item Group */}
       <Dialog
         open={isNewGroupDialogOpen}
         onOpenChange={setIsNewGroupDialogOpen}
       >
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md font-sans">
           <DialogHeader>
             <DialogTitle>Create New Item Group</DialogTitle>
             <DialogDescription>
@@ -466,9 +439,9 @@ export default function ItemDetailsForm({ item }: ItemDetailsFormProps) {
         </DialogContent>
       </Dialog>
 
-      {/* Dialog for adding new UOM */}
+      {/* Dialog for new UOM */}
       <Dialog open={isNewUomDialogOpen} onOpenChange={setIsNewUomDialogOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md font-sans">
           <DialogHeader>
             <DialogTitle>Create New Unit of Measure</DialogTitle>
             <DialogDescription>

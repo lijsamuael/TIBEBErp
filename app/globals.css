@@ -1,48 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
 @import "tailwindcss";
 
-
-
-.font-poppins {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 1rem; /* 16px */
-  line-height: 1.5;
-  color: #1f2937; /* Tailwind gray-800 */
+body {
+  font-family: 'Inter', sans-serif;
 }
-
-.font-sansation {
-  font-family: "Sansation", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #1f2937;
-}
-
-.font-roboto {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #111827; /* Tailwind gray-900 */
-}
-
-.font-montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.6;
-  color: #111827;
-}
-
-.font-inter {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: 1.9rem;
-  line-height: 1.6;
-  color: #374151; /* Tailwind gray-700 */
-}
-
-
 .heading-1 {
   font-size: 2rem; /* 32px */
   font-weight: 700;

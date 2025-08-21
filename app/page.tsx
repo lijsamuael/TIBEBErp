@@ -1,4 +1,5 @@
-import ItemDetailsForm, { ItemData } from "@/pages/DetailPage";
+import ItemDetailsForm, { ItemData } from "@/pages/detailpage/DetailPage";
+import Navbar from "@/pages/detailpage/Navbar";
 
 export default function Home() {
   // Example item data
@@ -17,7 +18,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-10">
+    <div className="flex flex-col items-end p-10">
+      <Navbar></Navbar>
       <ItemDetailsForm item={item} />
     </div>
   );

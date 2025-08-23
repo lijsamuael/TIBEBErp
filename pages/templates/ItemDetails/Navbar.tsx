@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/molecules/DropdownMenu";
+import { SidebarTrigger } from "@/components/organisms/SideBar";
 import {
   ChevronDown,
   ChevronLeft,
@@ -21,11 +22,46 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
-const Navbar = () => {
+// Add props interface
+interface NavbarProps {
+  itemName: string;
+  itemData?: {
+    group?: string;
+    status?: string;
+    valuation?: string;
+    Unit_of_Measure?: string;
+    disabled?: boolean;
+    isVariant?: boolean;
+    variantOf?: string;
+  };
+  onSave?: () => void; // Add this
+  onDuplicate?: () => void; // Add this
+}
+
+const Navbar = ({ itemName, itemData }: NavbarProps) => {
   const { setTheme } = useTheme();
+
   return (
-    <nav className="p-4 flex items-center justify-between">
+    <nav className="p-4 flex items-center justify-between w-full">
       <div className="flex items-center gap-4">
+        <SidebarTrigger className="w-10" />
+
+        {/* Display item name and details */}
+        <div className="flex flex-1 flex-col md:flex-row md:items-center md:gap-4">
+          <h1 className="text-xl font-bold">{itemName}</h1>
+          {itemData?.group && (
+            <p className="text-sm text-gray-600">{itemData.group}</p>
+          )}
+          {itemData?.status && (
+            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+              {itemData.status}
+            </span>
+          )}
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4">
+        {/* ... rest of your navbar code remains the same ... */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size={"default"}>
@@ -38,7 +74,7 @@ const Navbar = () => {
               </div>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="start">
             <DropdownMenuItem onClick={() => setTheme("light")}>
               Stock Balance
             </DropdownMenuItem>
@@ -50,7 +86,6 @@ const Navbar = () => {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size={"default"}>
@@ -63,7 +98,7 @@ const Navbar = () => {
               </div>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="start">
             <DropdownMenuItem onClick={() => setTheme("system")}>
               Add/Edit Price
             </DropdownMenuItem>
@@ -118,19 +153,18 @@ const Navbar = () => {
         </DropdownMenu>
 
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="outline" size={"sm"}>
-                  <div className="flex flex-row gap-3 items-center justify-between">
-                    <MoreHorizontal className="ml-auto h-4 w-4" />
-                  </div>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm">
+                  <MoreHorizontal className="h-4 w-4" />
                 </Button>
-              </TooltipTrigger>
-              <TooltipContent>Menu</TooltipContent>
-            </Tooltip>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-48">
+              </DropdownMenuTrigger>
+            </TooltipTrigger>
+            <TooltipContent>Menu</TooltipContent>
+          </Tooltip>
+
+          <DropdownMenuContent align="end" className="w-48">
             <DropdownMenuItem>Print</DropdownMenuItem>
             <DropdownMenuItem>Email</DropdownMenuItem>
             <DropdownMenuItem>Jump to field</DropdownMenuItem>
@@ -146,17 +180,13 @@ const Navbar = () => {
             <DropdownMenuItem>New Item</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant={"default"} size={"default"}>
               Save
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => setTheme("system")}>
-              Add/Edit Price
-            </DropdownMenuItem>
-          </DropdownMenuContent>
         </DropdownMenu>
       </div>
     </nav>

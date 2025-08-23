@@ -209,6 +209,7 @@ export const FileUploader = forwardRef<
         return;
       }
       setIsLOF(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value, maxFiles]);
  
     const opts = dropzoneOptions

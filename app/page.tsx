@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <div className=" items-center flex justify-center w-full ">
-      <Button variant={"destructive"}>http://localhost:3000/detailpage</Button>
+      <Button variant={"destructive"}  >http://localhost:3000/detailpage</Button>
     </div>
   );
 }

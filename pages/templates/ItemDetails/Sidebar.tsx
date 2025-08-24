@@ -53,8 +53,7 @@ export function AppSidebar({}: AppSidebarProps) {
   }, [files]);
 
   return (
-    <Sidebar className="font-sans antialiased">
-      {" "}
+    <Sidebar className="gap-10">
       <SidebarContent className="mt-16">
         {/* Profile section */}
         <SidebarGroup>
@@ -66,8 +65,8 @@ export function AppSidebar({}: AppSidebarProps) {
                   alt="User"
                   className="object-cover rounded-3xl"
                 />
-                <AvatarFallback className="text-lg rounded-3xl bg-muted text-muted-foreground">
-                  File
+                <AvatarFallback className="text-9xl rounded-3xl bg-muted text-muted-foreground">
+                  C
                 </AvatarFallback>
               </Avatar>
 
@@ -112,14 +111,14 @@ export function AppSidebar({}: AppSidebarProps) {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup>
-          <SidebarGroupContent>
+        <SidebarGroup className="">
+          <SidebarGroupContent className="text-2xl">
             <SidebarMenu>
               {/* Assigned To */}
               <SidebarMenuItem className="flex flex-row justify-between">
-                <div className="flex flex-row text-base justify-between p-2">
+                <div className="flex flex-row justify-between pl-2">
                   <div className="flex items-center gap-2">
-                    <User />
+                    <User className="h-5 w-5" />
                     <Label htmlFor="assignedTo" className=" cursor-pointer">
                       Assigned To
                     </Label>
@@ -128,7 +127,7 @@ export function AppSidebar({}: AppSidebarProps) {
                 {assignedTo && (
                   <div className="pl-6 mt-1">
                     <Button variant="ghost" size="sm" className="h-6">
-                      <Plus></Plus>
+                      <Plus className="h-5 w-5"></Plus>
                     </Button>
                   </div>
                 )}
@@ -136,9 +135,9 @@ export function AppSidebar({}: AppSidebarProps) {
 
               {/* Attachments */}
               <SidebarMenuItem className="flex flex-row justify-between">
-                <div className="flex flex-row justify-between p-2">
+                <div className="flex flex-row justify-between pl-2">
                   <div className="flex items-center gap-2">
-                    <Paperclip></Paperclip>
+                    <Paperclip className="h-5 w-5"></Paperclip>
                     <Label htmlFor="attachments" className="cursor-pointer">
                       Attachments
                     </Label>
@@ -147,7 +146,7 @@ export function AppSidebar({}: AppSidebarProps) {
                 {hasAttachments && (
                   <div className="pl-6 mt-1">
                     <Button variant="ghost" size="sm" className="h-6">
-                      <Plus></Plus>
+                      <Plus className="h-5 w-5"></Plus>
                     </Button>
                   </div>
                 )}
@@ -155,9 +154,9 @@ export function AppSidebar({}: AppSidebarProps) {
 
               {/* Tags */}
               <SidebarMenuItem className="flex flex-row justify-between">
-                <div className="flex items-center justify-between p-2">
+                <div className="flex items-center justify-between pl-2">
                   <div className="flex items-center gap-2">
-                    <Tag />
+                    <Tag className="h-5 w-5" />
                     <Label htmlFor="tags" className="cursor-pointer">
                       Tags
                     </Label>
@@ -166,7 +165,7 @@ export function AppSidebar({}: AppSidebarProps) {
                 {hasTags && (
                   <div className="pl-6 mt-1">
                     <Button variant="ghost" size="sm" className="h-6">
-                      <Plus></Plus>
+                      <Plus className="h-5 w-5"></Plus>
                     </Button>
                   </div>
                 )}

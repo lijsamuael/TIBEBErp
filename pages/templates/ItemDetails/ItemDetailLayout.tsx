@@ -51,12 +51,8 @@ export default function ItemDetailLayout({
         />
       </div>
 
-      {/* Content area below sticky navbar */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar on the left - scrollable */}
-        <div className="border-r bg-white overflow-y-auto">
-          {" "}
-          {/* Added overflow-y-auto */}
+        <div className="border-r bg-white overflow-y-auto pl-5">
           <AppSidebar
             itemData={{
               name: item.name,
@@ -69,7 +65,6 @@ export default function ItemDetailLayout({
           />
         </div>
 
-        {/* Main Content on the right - scrollable */}
         <main className="flex-1 overflow-auto bg-gray-50">
           <ItemDetailsForm item={item} onItemChange={handleItemChange} />
         </main>

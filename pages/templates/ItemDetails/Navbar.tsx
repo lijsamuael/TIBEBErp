@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
-// Add props interface
 interface NavbarProps {
   itemName: string;
   itemData?: {

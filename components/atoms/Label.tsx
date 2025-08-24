@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as LabelPrimitive from "@radix-ui/react-label"
-import { cn } from "../../lib/utils"
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { cn } from "../../lib/utils";
 
 function Label({
   className,
@@ -11,13 +11,10 @@ function Label({
   return (
     <LabelPrimitive.Root
       data-slot="label"
-      className={cn(
-        "block text-sm font-semibold text-gray-700",
-        className
-      )}
+      className={cn("block text-base font-semibold text-gray-700", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Label }
+export { Label };
